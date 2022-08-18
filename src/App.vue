@@ -24,6 +24,7 @@
 
     <NavList v-if="switchShow" v-show="menuValue"></NavList>
     <Links v-show="!menuValue"></Links>
+    <SearchBar></SearchBar>
   </div>
 </template>
 
@@ -33,12 +34,14 @@ import "animate.css";
 import Search from "./components/Search.vue";
 import NavList from "./components/navList.vue";
 import Links from "./components/Links.vue";
+import SearchBar from "./components/search-bar.vue";
 export default {
   name: "App",
   components: {
     Search,
     NavList,
     Links,
+    SearchBar,
   },
   data() {
     return {
