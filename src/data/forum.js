@@ -1,0 +1,32 @@
+export default [
+    {
+        url:'https://segmentfault.com/',
+        LocationIcon:'sf.png',
+        title:'思否',
+        description:'SegmentFault思否是中国领先的开发者技术社区。我们以技术问答、技术专栏、技术课程、技术资讯为核心的产品形态,为开发者提供纯粹、高质的技术交流平台。'
+    },
+    {
+        url:'https://juejin.cn/',
+        LocationIcon:'juejin.jpg',
+        title:'掘金',
+        description:'掘金是面向全球中文开发者的技术内容分享与交流平台。我们通过技术文章、沸点、课程、直播等产品和服务,打造一个激发开发者创作灵感,激励开发者沉淀分享,陪伴开发者成长的综合类技术社区。'
+    },
+    {
+        url:'https://stackoverflow.com/',
+        LocationIcon:'stackoverflow.png',
+        title:'StackOverflow',
+        description:'Stack Overflow是一个程序设计领域的问答网站,隶属Stack Exchange Network。'
+    },
+    {
+        url:'https://www.github.com/',
+        LocationIcon:'github.svg',
+        title:'Github',
+        description:'GitHub是世界上最大的代码托管平台,超5千万开发者正在使用。GitHub中文社区,是国内领先的开源社区。'
+    },
+    {
+        url:'https://0xffff.one/',
+        LocationIcon:'我好菜啊.jpg',
+        title:'0xFFFF',
+        description:'这是一个面向计算机爱好者的学习交流社区，它发源于华南师大计算机学院，目前汇聚了一些来自各地高校、企业、中小学的计算机爱好者们。'
+    },
+]

@@ -1,0 +1,42 @@
+export default [
+	{
+		url:"https://v3.cn.vuejs.org/guide/introduction.html",
+		LocationIcon:"vue.svg",
+		title:"Vue"
+	},
+	{
+		url:"https://zh-hans.reactjs.org/",
+		LocationIcon:"react.svg",
+		title:"React"
+	},
+	{
+		url:"https://element.eleme.cn/#/zh-CN/component/installation",
+		LocationIcon:"ele.svg",
+		title:"Element UI"
+	},
+	{
+		url:"https://developer.mozilla.org/zh-CN/",
+		LocationIcon:"mdn.svg",
+		title:"MDN"
+	},
+	{
+		url:"https://vitejs.cn/guide/",
+		LocationIcon:"vitejs.svg",
+		title:"Vite"
+	},
+	{
+		url:"https://www.npmjs.com/",
+		LocationIcon:"npm.svg",
+		title:"NPM"
+	},
+	{
+		url:"https://www.lodashjs.com/",
+		LocationIcon:"lodash.svg",
+		title:"Lodash"
+	},
+	{
+		url:"https://www.github.com/",
+		LocationIcon:"github.svg",
+		title:"Github"
+	},
+]
