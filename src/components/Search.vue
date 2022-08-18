@@ -18,16 +18,43 @@
 </template>
 
 <script>
+import pubsub from "pubsub-js";
 export default {
   name: "Search-Input",
+  data() {
+    return {
+      searchEngine: [
+        "https://www.baidu.com/s?wd=",
+        "https://www.google.com/search?q=",
+        "https://github.com/search?q=",
+        "https://cn.bing.com/search?q=",
+      ],
+      INDEX: 0,
+    };
+  },
   methods: {
     autoFocus() {
       this.$refs.Input.focus();
     },
     // 按下回车搜索函数
     getBaidu(value) {
-      window.open(`https://www.baidu.com/s?wd=${value.target.value}`, "_blank");
+      window.open(
+        `${this.searchEngine[this.INDEX]}${value.target.value}`,
+        "_blank"
+      );
     },
+  },
+  mounted() {
+    // 订阅消息
+    // 该方法能接收到两个参数，第一个是消息的名称，第二个是传递过来的信息
+    this.pubId = pubsub.subscribe("resolveIndex", (_msgName, Value) => {
+      // 此处不能用普通函数，因为普通函数的this指向window
+      this.INDEX = Value;
+    });
+  },
+  beforeDestroy() {
+    // 解除订阅
+    pubsub.unsubscribe(this.pubId);
   },
 };
 </script>
@@ -62,7 +89,7 @@ export default {
 .input:focus,
 input:hover {
   outline: none;
-  border-color: rgba(234, 76, 137, 0.4);
+  border-color: rgba(163, 167, 172, 0.4);
   background-color: #fff;
   box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
 }

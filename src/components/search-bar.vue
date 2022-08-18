@@ -1,16 +1,20 @@
 <template>
   <div>
     <div class="wrapper">
-      <div @click="changeBar($event)" class="bar-icon search-tip">
+      <div
+        data-index="0"
+        @click="changeBar($event)"
+        class="bar-icon search-tip"
+      >
         <img test src="../../public/assets/bar/baidu.svg" alt="" />
       </div>
-      <div @click="changeBar($event)" class="bar-icon">
+      <div data-index="1" @click="changeBar($event)" class="bar-icon">
         <img src="../../public/assets/bar/google.svg" alt="" />
       </div>
-      <div @click="changeBar($event)" class="bar-icon">
+      <div data-index="2" @click="changeBar($event)" class="bar-icon">
         <img src="../../public/assets/bar/github.svg" alt="" />
       </div>
-      <div @click="changeBar($event)" class="bar-icon">
+      <div data-index="3" @click="changeBar($event)" class="bar-icon">
         <img src="../../public/assets/bar/biying.svg" alt="" />
       </div>
     </div>
@@ -18,11 +22,17 @@
 </template>
 
 <script>
+import pubsub from "pubsub-js";
 export default {
   name: "search-bar",
   methods: {
     changeBar(e) {
       let itmes = document.querySelectorAll(".bar-icon");
+      // 发布信息
+      pubsub.publish(
+        "resolveIndex",
+        e.currentTarget.getAttribute("data-index")
+      );
       for (let i = 0; i < 4; i++) {
         itmes[i].classList.remove("search-tip");
       }
@@ -45,12 +55,14 @@ export default {
 }
 .search-tip::before {
   content: "";
-  width: 8px;
-  height: 3px;
+  width: 5px;
+  height: 16px;
   display: inline-block;
-  background-color: #fff;
+  background-color: #409eff;
   position: relative;
-  bottom: 30%;
+  border-radius: 3px;
+  bottom: 20%;
+  right: 4px;
 }
 img {
   width: 30px;
