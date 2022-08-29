@@ -29,7 +29,6 @@
 </template>
 
 <script>
-// import axios from "axios";
 import "animate.css";
 import Search from "./components/Search.vue";
 import NavList from "./components/navList.vue";

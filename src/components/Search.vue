@@ -29,7 +29,7 @@ export default {
         "https://github.com/search?q=",
         "https://cn.bing.com/search?q=",
       ],
-      INDEX: 0,
+      INDEX: 3,
     };
   },
   methods: {

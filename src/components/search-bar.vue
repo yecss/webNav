@@ -1,11 +1,7 @@
 <template>
   <div>
     <div class="wrapper">
-      <div
-        data-index="0"
-        @click="changeBar($event)"
-        class="bar-icon search-tip"
-      >
+      <div data-index="0" @click="changeBar($event)" class="bar-icon">
         <img test src="../../public/assets/bar/baidu.svg" alt="" />
       </div>
       <div data-index="1" @click="changeBar($event)" class="bar-icon">
@@ -14,7 +10,11 @@
       <div data-index="2" @click="changeBar($event)" class="bar-icon">
         <img src="../../public/assets/bar/github.svg" alt="" />
       </div>
-      <div data-index="3" @click="changeBar($event)" class="bar-icon">
+      <div
+        data-index="3"
+        @click="changeBar($event)"
+        class="bar-icon search-tip"
+      >
         <img src="../../public/assets/bar/biying.svg" alt="" />
       </div>
     </div>
