@@ -7,7 +7,7 @@ export default [
   },
   {
     url: 'https://element.eleme.cn/#/zh-CN',
-    LocationIcon: 'ele.png',
+    LocationIcon: 'ele.svg',
     title: 'ElementUI',
     description:
       'Element, 一套为开发者、设计师和产品经理准备的基于 Vue 2.0 的桌面端组件库。',

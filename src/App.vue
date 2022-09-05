@@ -23,8 +23,7 @@
     </div>
 
     <NavList v-if="switchShow" v-show="menuValue"></NavList>
-    <Links v-show="!menuValue"></Links>
-    <SearchBar></SearchBar>
+    <Links v-if="!menuValue"></Links>
   </div>
 </template>
 
@@ -33,18 +32,16 @@ import "animate.css";
 import Search from "./components/Search.vue";
 import NavList from "./components/navList.vue";
 import Links from "./components/Links.vue";
-import SearchBar from "./components/search-bar.vue";
 export default {
   name: "App",
   components: {
     Search,
     NavList,
     Links,
-    SearchBar,
   },
   data() {
     return {
-      switchShow: true,
+      switchShow: "",
       menuValue: true,
     };
   },
@@ -58,6 +55,9 @@ export default {
   },
   mounted() {
     // 坑一:浏览器存储的值都是字符串
+    if(!localStorage.getItem("switchShow")){
+      localStorage.setItem("switchShow",true)
+    }
     this.switchShow = JSON.parse(localStorage.getItem("switchShow"));
     this.$bus.$on("showIf", () => {
       this.menuValue = !this.menuValue;
@@ -72,8 +72,9 @@ export default {
 
 <style>
 body {
-  background-image: url(./wallpaper/1.png);
-  background-size: 100% auto;
+  background-image: url(./wallpaper/2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .menuhide {
   position: absolute;
@@ -90,8 +91,7 @@ body {
   cursor: pointer;
 }
 .search {
-  width: 365px;
-  margin: 220px auto;
+  margin: 180px auto;
 }
 /* 禁止链接展示按钮点击样式 */
 .preventClick {

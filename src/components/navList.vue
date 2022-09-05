@@ -53,8 +53,9 @@ export default {
   text-align: center;
   position: relative;
   margin: 10px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.18);
   border-radius: 8px;
+  backdrop-filter: blur(10px)
 }
 h4 {
   width: 100%;
@@ -62,6 +63,7 @@ h4 {
   position: absolute;
   bottom: 10px;
   margin: 0;
-  color: rgb(182, 144, 144);
+  color: #ffffffb6;
+  font-weight: 400;
 }
 </style>

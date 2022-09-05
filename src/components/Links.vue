@@ -22,6 +22,22 @@
           <i class="el-icon-ice-drink"></i>
           <span slot="title">前端插件</span>
         </el-menu-item>
+        <el-menu-item index="5">
+          <i class="el-icon-headset"></i>
+          <span slot="title">音乐网站</span>
+        </el-menu-item>
+        <el-menu-item index="6">
+          <i class="el-icon-video-play"></i>
+          <span slot="title">在线影视</span>
+        </el-menu-item>
+        <el-menu-item index="7">
+          <i class="el-icon-news"></i>
+          <span slot="title">壁纸网站</span>
+        </el-menu-item>
+        <el-menu-item index="8">
+          <i class="el-icon-monitor"></i>
+          <span slot="title">软件下载</span>
+        </el-menu-item>
       </el-menu>
     </el-col>
     <div class="box">
@@ -60,6 +76,10 @@ import forumData from "../data/forum"
 import docData from "../data/doc"
 import uiData from "../data/ui"
 import pluginsData from "../data/plugins"
+import music from "../data/music"
+import movie from "../data/movie"
+import wallpaper from "../data/wallpaper"
+import software from "../data/software"
 export default {
   name: "Links-tab",
   data() {
@@ -78,8 +98,20 @@ export default {
       else if(value == 3){
         this.linksData = uiData
       }
-      else{
+      else if(value == 4){
         this.linksData = pluginsData
+      }
+      else if(value == 5){
+        this.linksData = music
+      }
+      else if(value == 6){
+        this.linksData = movie
+      }
+      else if(value == 7){
+        this.linksData = wallpaper
+      }
+      else if(value == 8){
+        this.linksData = software
       }
     },
     changeShow() {
@@ -91,9 +123,15 @@ export default {
 
 <style scoped>
 .wrapper {
-  width: 80%;
+  width: 72%;
   height: 600px;
   margin: 60px auto;
+}
+@media screen and (min-device-width:1600px) {
+  .wrapper{
+    height: 800px;
+    margin-top: 100px;
+  }
 }
 .content {
   z-index: 99;
@@ -126,6 +164,8 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .card {
   width: 220px;
