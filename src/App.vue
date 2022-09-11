@@ -1,29 +1,16 @@
 <template>
   <div>
-    <div class="menuhide" v-show="menuValue">
-      <el-tooltip
-        class="item"
-        effect="dark"
-        content="此选项将会存储在您的浏览器当中."
-        placement="bottom-start"
-      >
-        <span>导航展示：</span>
-      </el-tooltip>
-      <el-switch
-        @change="navShow"
-        v-model="switchShow"
-        active-color="#702e49"
-        inactive-color="#9baebd99"
-      >
-      </el-switch>
+    <div class="menu-btn">
+      <i @click="changeShow" class="el-icon-menu mentBtn"></i>
     </div>
-    <i @click="changeShow" class="el-icon-menu mentBtn"></i>
     <div v-show="menuValue" class="search">
       <Search ref="inp"></Search>
     </div>
 
-    <NavList v-if="switchShow" v-show="menuValue"></NavList>
-    <Links v-if="!menuValue"></Links>
+    <div class="nav-list">
+      <NavList v-if="switchShow" v-show="menuValue"></NavList>
+    </div>
+    <Links @changeIndexLink="handleChange" v-if="!menuValue"></Links>
   </div>
 </template>
 
@@ -41,24 +28,23 @@ export default {
   },
   data() {
     return {
-      switchShow: "",
       menuValue: true,
+      switchShow:''
     };
   },
   methods: {
-    navShow() {
-      localStorage.setItem("switchShow", this.switchShow);
+    handleChange(v){
+      this.switchShow = v
     },
     changeShow() {
       this.menuValue = !this.menuValue;
     },
   },
   mounted() {
-    // 坑一:浏览器存储的值都是字符串
-    if(!localStorage.getItem("switchShow")){
-      localStorage.setItem("switchShow",true)
+    if (!localStorage.getItem("switchShow")) {
+      localStorage.setItem("switchShow", true);
     }
-    this.switchShow = JSON.parse(localStorage.getItem("switchShow"));
+    this.switchShow = JSON.parse(localStorage.getItem("switchShow"))
     this.$bus.$on("showIf", () => {
       this.menuValue = !this.menuValue;
     });
@@ -76,18 +62,12 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.menuhide {
-  position: absolute;
-  right: 6%;
-  top: 3%;
-  color: aliceblue;
-}
 .mentBtn {
   font-size: 34px;
   color: #fff;
   position: absolute;
   top: 2%;
-  right: 2%;
+  right: 1%;
   cursor: pointer;
 }
 .search {
@@ -100,5 +80,17 @@ body {
 /* 优化图标显示 */
 .el-avatar > img {
   margin: 0 auto;
+}
+@media screen and (max-width: 480px) {
+  body {
+    background-color: #fff;
+    background-image: none;
+  }
+  .nav-list {
+    display: none;
+  }
+  .menu-btn {
+    display: none;
+  }
 }
 </style>

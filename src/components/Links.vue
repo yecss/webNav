@@ -38,6 +38,24 @@
           <i class="el-icon-monitor"></i>
           <span slot="title">软件下载</span>
         </el-menu-item>
+        <div class="setting">
+          <span>导航 > </span>
+          <el-tooltip
+            class="item"
+            effect="dark"
+            content="是否展示首页导航."
+            placement="bottom-start"
+          >
+            <el-switch
+              class="switch"
+              @change="navShow"
+              v-model="switchShow"
+              active-color="#717ff9"
+              inactive-color="#9baebd99"
+            >
+            </el-switch>
+          </el-tooltip>
+        </div>
       </el-menu>
     </el-col>
     <div class="box">
@@ -48,10 +66,15 @@
       ></el-button>
       <!-- 链接展示区 start -->
       <div class="cardWrapper">
-        <a v-for="(i,index) in linksData" :key="index" :href="i.url" target="_blank">
+        <a
+          v-for="(i, index) in linksData"
+          :key="index"
+          :href="i.url"
+          target="_blank"
+        >
           <div class="card">
             <div class="card-header">
-              <img :src="`assets/links/${i.LocationIcon}`" class="link-icon">
+              <img :src="`assets/links/${i.LocationIcon}`" class="link-icon" />
               <!-- <el-avatar
                 class="link-icon"
                 :src="`assets/links/${i.LocationIcon}`"
@@ -72,51 +95,54 @@
 </template>
 
 <script>
-import forumData from "../data/forum"
-import docData from "../data/doc"
-import uiData from "../data/ui"
-import pluginsData from "../data/plugins"
-import music from "../data/music"
-import movie from "../data/movie"
-import wallpaper from "../data/wallpaper"
-import software from "../data/software"
+import forumData from "../data/forum";
+import docData from "../data/doc";
+import uiData from "../data/ui";
+import pluginsData from "../data/plugins";
+import music from "../data/music";
+import movie from "../data/movie";
+import wallpaper from "../data/wallpaper";
+import software from "../data/software";
 export default {
   name: "Links-tab",
   data() {
     return {
-      linksData:forumData
+      linksData: forumData,
+      switchShow: "",
     };
   },
   methods: {
+    navShow() {
+      localStorage.setItem("switchShow", this.switchShow);
+      this.$emit("changeIndexLink",this.switchShow)
+    },
     getMenuIndex(value) {
-      if (value == 1){
-        this.linksData = forumData
-      }
-      else if(value == 2){
-        this.linksData = docData
-      }
-      else if(value == 3){
-        this.linksData = uiData
-      }
-      else if(value == 4){
-        this.linksData = pluginsData
-      }
-      else if(value == 5){
-        this.linksData = music
-      }
-      else if(value == 6){
-        this.linksData = movie
-      }
-      else if(value == 7){
-        this.linksData = wallpaper
-      }
-      else if(value == 8){
-        this.linksData = software
+      if (value == 1) {
+        this.linksData = forumData;
+      } else if (value == 2) {
+        this.linksData = docData;
+      } else if (value == 3) {
+        this.linksData = uiData;
+      } else if (value == 4) {
+        this.linksData = pluginsData;
+      } else if (value == 5) {
+        this.linksData = music;
+      } else if (value == 6) {
+        this.linksData = movie;
+      } else if (value == 7) {
+        this.linksData = wallpaper;
+      } else if (value == 8) {
+        this.linksData = software;
       }
     },
     changeShow() {
       this.$bus.$emit("showIf");
+      this.$bus.$emit('changeIndexLink',this.switchShow)
     },
+  },
+  mounted() {
+    // 坑一:浏览器存储的值都是字符串
+    this.switchShow = JSON.parse(localStorage.getItem("switchShow"));
   },
 };
 </script>
@@ -127,10 +153,15 @@ export default {
   height: 600px;
   margin: 60px auto;
 }
-@media screen and (min-device-width:1600px) {
-  .wrapper{
+@media screen and (min-device-width: 1600px) {
+  .wrapper {
     height: 800px;
     margin-top: 100px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .cardWrapper {
+    overflow: scroll;
   }
 }
 .content {
@@ -178,6 +209,9 @@ a {
   font-size: 14px;
   padding-top: 16px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  /* 增大链接卡片之间的距离 */
+  margin-left: 5px;
+  margin-top: 4px;
 }
 .link-icon {
   margin-left: 20px;
@@ -193,7 +227,7 @@ a {
 }
 .card-title {
   font-size: 20px;
-  font-family: 'Times New Roman',"宋体";
+  font-family: "Times New Roman", "宋体";
   font-weight: bold;
   vertical-align: middle;
   margin-left: 10px;
@@ -203,5 +237,13 @@ a {
   color: #566f6f;
   width: 208px;
   margin: 0 auto;
+}
+.setting {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  color: #717ff9;
+  margin-left: 15px;
 }
 </style>

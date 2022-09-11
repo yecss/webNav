@@ -145,6 +145,7 @@ export default {
 </script>
 
 <style scoped>
+
 form {
   position: relative;
   width: 466px;
@@ -223,6 +224,7 @@ form {
   top: 48px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
+  z-index: 100;
 }
 .select-search .item-select {
   height: 36px;
@@ -258,5 +260,10 @@ li {
   width: 18px;
   height: 18px;
   fill: #191616;
+}
+@media screen and (max-width:480px) {
+  form {
+    width: 86%;
+  }
 }
 </style>

@@ -1,5 +1,11 @@
 export default [
   {
+    url: 'https://www.alipansou.com/',
+    LocationIcon: '影视.svg',
+    title: '猫狸盘搜',
+    description: '阿里网盘资源聚合站点',
+  },
+  {
     url: 'https://u.gitcafe.net/',
     LocationIcon: '小纸条.png',
     title: '小纸条',
