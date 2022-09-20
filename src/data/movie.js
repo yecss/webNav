@@ -41,11 +41,40 @@ export default [
     title: '哈哩哈哩',
     description: '动漫网站',
   },
-
   {
     url: 'https://yyds.fans/index',
     LocationIcon: 'movie.svg',
     title: 'YYDS影视',
+    description: '影视网站',
+  },
+  {
+    url: 'https://www.libvio.me/',
+    LocationIcon: 'movie.svg',
+    title: 'LIBVIO影视',
+    description: '影视网站',
+  },
+  {
+    url: 'https://www.92cj.com/',
+    LocationIcon: 'movie.svg',
+    title: '路漫漫',
+    description: '影视网站',
+  },
+  {
+    url: 'https://www.subaibaiys.com/',
+    LocationIcon: 'movie.svg',
+    title: '素白白影视',
+    description: '影视网站',
+  },
+  {
+    url: 'https://www.czspp.com/',
+    LocationIcon: 'movie.svg',
+    title: '厂长影视',
+    description: '影视网站',
+  },
+  {
+    url: 'https://www.bdys01.com/',
+    LocationIcon: 'movie.svg',
+    title: '哔嘀影视',
     description: '影视网站',
   },
 ]
